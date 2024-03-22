@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "200773418442",
+    "project_id": "twich-flutter",
+    "storage_bucket": "twich-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200773418442:android:527b5d03e636f8d64da333",
+        "android_client_info": {
+          "package_name": "com.example.twitch_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2cs_nY1qTUMcP8tnbUYY3ZHHRMDpvPSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
