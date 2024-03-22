@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:twitch_flutter/resource/auth_methods.dart';
+import 'package:twitch_flutter/screens/home_screen.dart';
 import 'package:twitch_flutter/widgets/custom_button.dart';
 import 'package:twitch_flutter/widgets/custom_textfield.dart';
 
@@ -18,6 +20,18 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
+    void signUpUser() async {
+      bool res = await AuthMethods().signUpUser(
+        context,
+        _emailController.text,
+        _passwordController.text,
+        _usernameController.text,
+      );
+      if (res == true) {
+        Navigator.pushNamed(context, HomeScreen.routeName);
+      }
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -87,7 +101,9 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               CustomButton(
                 text: 'Sign Up',
-                onTap: () {},
+                onTap: () {
+                  signUpUser();
+                },
               ),
             ],
           ),
