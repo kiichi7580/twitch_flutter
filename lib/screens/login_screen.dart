@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:twitch_flutter/resource/auth_methods.dart';
+import 'package:twitch_flutter/screens/home_screen.dart';
 import 'package:twitch_flutter/widgets/custom_button.dart';
 import 'package:twitch_flutter/widgets/custom_textfield.dart';
 
@@ -13,6 +15,18 @@ class LoginScreen extends StatefulWidget {
 class _SignupScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final AuthMethods _authMethods = AuthMethods();
+
+  loginUser() async {
+    bool res = await _authMethods.loginUser(
+      context,
+      _emailController.text,
+      _passwordController.text,
+    );
+    if (res) {
+      Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +83,9 @@ class _SignupScreenState extends State<LoginScreen> {
               ),
               CustomButton(
                 text: 'Login',
-                onTap: () {},
+                onTap: () {
+                  loginUser();
+                },
               ),
             ],
           ),
